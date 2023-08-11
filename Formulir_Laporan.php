@@ -69,28 +69,28 @@
                     <form action="contact.php" method="POST" style="display: flex;flex-wrap: wrap;">
                         <legend style="display:flex; justify-content:center; -webkit-text-stroke-width:thin; margin-bottom:52px;">FORMULIR LAPORAN</legend>
                         <div class="colums" style="display: flex;flex-wrap: wrap;flex-direction: column;">
-                                <div class="item" style="display: flex;">
-                                    <label for="fname">First name:</label>
-                                    <input type="text" id="fname" name="fname"><br>
-                                    <label for="lname">Last name:</label><br>
-                                    <input type="text" id="lname" name="lname"><br>
-                                    <label for="phone">Phone<span>*</span></label><br>
+                                <div class="item" style="display: flex;flex-direction: row;justify-content: space-around;">
+                                    <label for="fname">Nama Lengkap</label><br>
+                                    <input type="text" id="fname" name="fname">
+                                    <label for="lname">No.NIK</label><br>
+                                    <input type="text" id="lname" name="lname">
+                                    <label for="phone">Korban</label><br>
                                     <input id="phone" type="tel"   name="phone">
                                   
                                 </div>
                                 <br>
-                                <div class="item" style="display: flex;">
-                                    <label for="street">Street<span>*</span></label><br>
+                                <div class="item" style="display: flex;flex-direction: row;justify-content: space-around;">
+                                    <label for="street">Tempat Lahir</label><br>
                                     <input id="street" type="text"   name="street" required/>
-                                    <label>Tanggal Lahir:</label><br>
+                                    <label>Tanggal Lahir</label><br>
                                     <input type="date" name="tanggal" />
-                                    <label for="city">City<span>*</span></label><br>
+                                    <label for="city">No.Telp<span>*</span></label><br>
                                     <input id="city" type="text"   name="city" required/>
-                                    <label for="city">City<span>*</span></label><br>
+                                    <label for="city">Email<span>*</span></label><br>
                                     <input id="city" type="text"   name="city" required/>
                                 </div>
                                 <br>
-                                <div class="item" style="display: flex;">
+                                <div class="item" style="display: flex;flex-direction: row;justify-content: space-around;">
                                     <label for="cars">Kewarganegaraan:</label>
                                     <select id="cars" name="cars">
                                         <option value="">pilih jenis kelamin</option>
@@ -107,23 +107,87 @@
                                         <option value="">BMW</option>
                                         <option value="">Audi</option>
                                     </select>
-                                    <label for="city">City<span>*</span></label><br>
-                                    <input id="city" type="text"   name="city" required/>
-                                    <label for="city">City<span>*</span></label><br>
+                                    <label for="cars">Agama:</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                    <label for="city">Pekerjaan</label><br>
                                     <input id="city" type="text"   name="city" required/>
                                 </div>
                                 <br>
-                                <div class="item" style="display: flex;">
-                                <label for="city">City<span>*</span></label><br>
-                                <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
-                                <label for="city">City<span>*</span></label><br>
-                                <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+                                <div class="item" style="display: flex;flex-direction: row;justify-content: space-around;">
+                                    <label for="city">Alamat Lengkap</label><br>
+                                    <textarea name="message1" rows="4" cols="50"></textarea>
+                                    <label for="city">Lokasi Kejadian</label><br>
+                                    <textarea name="message2" rows="4" cols="50"></textarea>
                                 </div>
                                 <br>
-                                <div class="item" style="display: flex;">
-                                    <label for="zip">Zip<span>*</span></label><br>
-                                    <input id="zip" type="text"   name="zip" required/>
+                                <div class="item" style="display: flex;flex-direction: row;justify-content: space-around;">
+                                    <label for="cars">Jenis Kejahatan:</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                    <label for="cars">Kerugian</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                    <label>Tanggal Kejadian</label><br>
+                                    <input type="date" name="tanggal" />
+                                    <label for="city">Waktu Kejadian</label><br>
+                                    <input id="city" type="text"   name="city" required/>
                                 </div>
+                                <br>
+                                <div class="item" style="display: flex;flex-direction: row;justify-content: space-around;">
+                                    <label for="cars">Jenis Kelamin:</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                    <label for="cars">Jenis Kelamin:</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                    <label for="city">Detail Motif kejadian </label><br>
+                                    <textarea name="message1" rows="2" cols="30"></textarea>
+                                </div>
+                                <br>
+                                <div class="item" style="display: flex;flex-direction: row;justify-content: space-around;">
+                                    <label for="cars">Jenis Kelamin:</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                    <label for="cars">Jenis Kelamin:</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                </div>  
                             </div>
                         </div>  
                     </form>
