@@ -30,64 +30,116 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    </head>
+</head>
 <body>
     <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div> -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top p-0" style="justify-content: center; margin-right: 150px; background-color= white;">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
-            <img src="img/logo_polisi.jpeg" alt style="margin-left: -548%;">
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul class="navbar-nav  ">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Beranda <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="service.html">Komparasi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Formulir_Laporan.php">Formulir Laporan</a>
-            </li>
-          </ul>
-          <form class="">
-          <button class="btn btn-outline-success" type="submit" ">Search</button>
-          </form>
-        </div>
-    </nav>
-    <div class="w3-container">
-
-    </div>  
-    <div class="w3-container" style="width:100%;height:400px;">
-        <img class="center" src="img/Lambang_Polri.png" style="display: block;margin-right: auto;margin-left: auto;margin-top: 218px;">
-        <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
-            <div class="w3-container class="form-lap" style="margin: -220px;margin-bottom: 10px;">
-                <form action="contact.php" method="POST" style="display: flex;margin-left: 606px;justify-items: center;">
-                    <fieldset ">
-                        <legend align="center">Form</legend>
-       
-                        <label>Alamat Web:</label>
-                        <input type="url" name="name" placeholder="Masukan URL Web..." />
-        
-       
-                        <label>Tanggal Lahir:</label>
-                        <input type="date" name="tanggal" />
-
-                        <label>Umur:</label>
-                        <input type="number" min="10" max="90" name="umur" />
-
-                        <input type="submit" name="submit" value="Send" />
-        
-                    </fieldset>
-                </form>
-            </div>
+    <div class="navbar-1">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top p-0" style="justify-content: center; margin-right: 150px; background-color= white;">
+            <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
+                <img src="img/logo_polisi.jpeg" alt style="margin-left: -548%;">
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav ">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Beranda <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="service.html">Komparasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Formulir_Laporan.php">Formulir Laporan</a>
+                </li>
+            </ul>
+            <form class="">
+                <button class="btn btn-outline-success" type="submit" ">Search</button>
+            </form>
+        </nav>
+    </div>
+    <div class="w3-container" style="display:flex;flex-wrap:wrap;margin:56px">
+        <img class="center" src="img/Lambang_Polri.png" style="display: flex;margin-right: auto;margin-left: auto;margin-top: 218px;">
+        <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="justify-content:center;background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
+            <fieldset style="display:flex; justify-content:center;">
+                <div class="class="form-lap" style="display:flex;">
+                    <form action="contact.php" method="POST" style="display: flex;flex-wrap: wrap;">
+                        <legend style="display:flex; justify-content:center; -webkit-text-stroke-width:thin; margin-bottom:52px;">FORMULIR LAPORAN</legend>
+                        <div class="colums" style="display: flex;flex-wrap: wrap;flex-direction: column;">
+                                <div class="item" style="display: flex;">
+                                    <label for="fname">First name:</label>
+                                    <input type="text" id="fname" name="fname"><br>
+                                    <label for="lname">Last name:</label><br>
+                                    <input type="text" id="lname" name="lname"><br>
+                                    <label for="phone">Phone<span>*</span></label><br>
+                                    <input id="phone" type="tel"   name="phone">
+                                  
+                                </div>
+                                <br>
+                                <div class="item" style="display: flex;">
+                                    <label for="street">Street<span>*</span></label><br>
+                                    <input id="street" type="text"   name="street" required/>
+                                    <label>Tanggal Lahir:</label><br>
+                                    <input type="date" name="tanggal" />
+                                    <label for="city">City<span>*</span></label><br>
+                                    <input id="city" type="text"   name="city" required/>
+                                    <label for="city">City<span>*</span></label><br>
+                                    <input id="city" type="text"   name="city" required/>
+                                </div>
+                                <br>
+                                <div class="item" style="display: flex;">
+                                    <label for="cars">Kewarganegaraan:</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                    <label for="cars">Jenis Kelamin:</label>
+                                    <select id="cars" name="cars">
+                                        <option value="">pilih jenis kelamin</option>
+                                        <option value="">Volvo</option>
+                                        <option value="">Toyota</option>
+                                        <option value="">BMW</option>
+                                        <option value="">Audi</option>
+                                    </select>
+                                    <label for="city">City<span>*</span></label><br>
+                                    <input id="city" type="text"   name="city" required/>
+                                    <label for="city">City<span>*</span></label><br>
+                                    <input id="city" type="text"   name="city" required/>
+                                </div>
+                                <br>
+                                <div class="item" style="display: flex;">
+                                <label for="city">City<span>*</span></label><br>
+                                <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+                                <label for="city">City<span>*</span></label><br>
+                                <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+                                </div>
+                                <br>
+                                <div class="item" style="display: flex;">
+                                    <label for="zip">Zip<span>*</span></label><br>
+                                    <input id="zip" type="text"   name="zip" required/>
+                                </div>
+                            </div>
+                        </div>  
+                    </form>
+                </div>
+            </fieldset>
         </div>
     </div>
+                        
+                        <!-- <label>Umur:</label>
+                        <input type="number" min="10" max="90" name="umur" />
+
+                        <input type="submit" name="submit" value="Send" /> -->
+                      
+        
+                
+     
     
 </body>
 </html>
