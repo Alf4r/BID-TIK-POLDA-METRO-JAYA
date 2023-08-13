@@ -53,7 +53,7 @@
                 <a class="nav-link" href="service.html">Komparasi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Formulir_Laporan.php">Formulir Laporan</a>
+                <a class="nav-link" href="Formulir_Laporan1.php">Formulir Laporan</a>
             </li>
           </ul>
           <form class="">
