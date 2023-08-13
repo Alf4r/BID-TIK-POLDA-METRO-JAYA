@@ -7,10 +7,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['pass'];
     $role = $_POST['user'];
 
-    // $stmt = $pdo->prepare("SELECT * FROM users WHERE NPP = :npp AND password = :password AND role = :role");
-    // $stmt->execute(['npp' => $npp, 'password' => $password, 'role' => $role]);
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE NPP = :npp AND password = :password AND role = :role");
+    $stmt->execute(['npp' => $npp, 'password' => $password, 'role' => $role]);
 
-    // $user = $stmt->fetch();
+    $user = $stmt->fetch();
 
     if ($user) {
         session_start();
