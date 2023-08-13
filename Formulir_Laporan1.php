@@ -218,7 +218,6 @@
                         </div>
 
                         <div style="display: flex;flex-direction: row;justify-content: flex-start;">
-    
                         <select id="kecamatan" name="kecamatan" style="margin-left: 0px;width: 166px;">
                             <option value="">Kecamatan</option>
                             <option value="Volvo">Volvo</option>
