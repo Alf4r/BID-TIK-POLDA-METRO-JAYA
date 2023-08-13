@@ -64,33 +64,36 @@
         <div class="w3-container" style="display:flex;flex-wrap:wrap;margin:56px">
             <img class="center" src="img/Lambang_Polri.png" style="display: flex;margin-right: auto;margin-left: auto;margin-top: 218px;">
             <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="justify-content:center;background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
-            <fieldset style="display:flex; justify-content:center;">
+            <fieldset style="display:flex;justify-content:center;margin-bottom: 411px;">
                 <div style="display:flex;">
                     <form action="Formulir_Laporan2.php" method="POST" style="display: flex;flex-wrap: wrap;">
-                        <legend style="display:flex; justify-content:center; -webkit-text-stroke-width:thin; margin-bottom:52px;">FORMULIR LAPORAN</legend>
+                    <legend style="display:flex; justify-content:center; -webkit-text-stroke-width:thin; margin-bottom:52px;">FORMULIR LAPORAN</legend>
                         <div style="display: flex;flex-wrap: wrap;flex-direction: column;">
                             <div style="display: flex;flex-direction: row;justify-content: space-between;">
                                 <div style="display: flex;flex-direction: column; margin: 0 10px;">
-                                    <label for="fname">Nama Lengkap</label>
+                                    <label for="fname">Nama Ibu Kandung</label>
                                     <input type="text" id="fname" name="fname" style="width: 350px;">
                                 </div>
                                 <div style="display: flex;flex-direction: column; margin: 0 10px;">
-                                    <label for="lname">No.NIK</label>
-                                    <input type="text" id="lname2" name="lname" style="width: 194px;">
+                                    <label for="lname">Nama Bapak Kandung</label>
+                                    <input type="text" id="lname2" name="lname" style="width: 350px;">
                                 </div>   
                             </div>
 
                             <div class="item" style="display: flex;flex-direction: row;justify-content: space-between;">
                                 <div style="display: flex;flex-direction: column; margin: 0 10px;">
-                                    <label for="street">Tempat Lahir</label>
-                                    <input id="street" type="text" name="street" style="width: 210px;">
+                                    <label for="street">Pekerjaan Ibu Kandung</label>
+                                    <input id="street" type="text" name="street" style="width: 350px;">
                                 </div>
 
                                 <div style="display: flex;flex-direction: column; margin: 0 10px;">
-                                    <label for="phone">Korban</label>
-                                    <input id="phone" type="tel" name="phone" style="width: 300px;">
+                                    <label for="phone">Pekerjaan Bapak Kandung</label>
+                                    <input id="phone" type="tel" name="phone" style="width: 350px;">
                                 </div>
                             </div>
+                            <div style="display: flex; justify-content: center; margin-top: 20px;">
+                                    <button type="submit">Selanjutnya</button>
+                                </div>
                         </div>
                     </form>
                 </div>
