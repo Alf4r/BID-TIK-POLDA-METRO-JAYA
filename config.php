@@ -1,11 +1,13 @@
 <?php
-$server = "localhost";
-$username = "root"; //username default phpMyAdmin
-$password = ""; //password default kosong untuk phpMyAdmin
-$database = "polda_login";
+$host = "localhost";
+$db_user = "root";
+$db_pass = ""; // password default untuk localhost biasanya kosong
+$db_name = "polda_login";
 
-$conn = new mysqli($server, $username, $password, $database);
+// Membuat koneksi
+$conn = new mysqli($host, $db_user, $db_pass, $db_name);
 
+// Cek koneksi
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
