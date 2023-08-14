@@ -1,20 +1,12 @@
 <?php
-$host = 'localhost';
-$db   = 'polda_login';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+$server = "localhost";
+$username = "root"; //username default phpMyAdmin
+$password = ""; //password default kosong untuk phpMyAdmin
+$database = "polda_login";
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
+$conn = new mysqli($server, $username, $password, $database);
 
-try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>

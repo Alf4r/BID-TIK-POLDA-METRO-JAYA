@@ -66,7 +66,7 @@
             <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="justify-content:center;background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
             <fieldset style="display:flex;justify-content:center;margin-bottom: 411px;">
                 <div style="display:flex;">
-                    <form action="Formulir_Laporan2.php" method="POST" style="display: flex;flex-wrap: wrap;">
+                    <form  method="POST" style="display: flex;flex-wrap: wrap;">
                     <legend style="display:flex; justify-content:center; -webkit-text-stroke-width:thin; margin-bottom:52px;">FORMULIR LAPORAN</legend>
                         <div style="display: flex;flex-wrap: wrap;flex-direction: column;">
                             <div style="display: flex;flex-direction: row;justify-content: space-between;">
@@ -92,7 +92,8 @@
                                 </div>
                             </div>
                             <div style="display: flex; justify-content: center; margin-top: 20px;">
-                                    <button type="submit">Selanjutnya</button>
+                                <a href="Formulir_Laporan1.php" type="submit" class="previous">Previous</a>
+                                    <input type="submit" onclick="return confirm('Are you sure?')" />
                                 </div>
                         </div>
                     </form>
