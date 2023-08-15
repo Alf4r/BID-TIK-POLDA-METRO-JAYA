@@ -233,7 +233,7 @@
 
 </div>
 <div style="display: flex; justify-content: center; margin-top: 20px;">
-    <button type="submit">Selanjutnya</button>
+    <a href="Formulir_Laporan2.php" type="submit" class="previous">selanjutnya</a>
 </div>
 
                             <!-- </div> -->

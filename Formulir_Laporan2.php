@@ -93,8 +93,8 @@
                             </div>
                             <div style="display: flex; justify-content: center; margin-top: 20px;">
                                 <a href="Formulir_Laporan1.php" type="submit" class="previous">Previous</a>
-                                    <input type="submit" onclick="return confirm('Are you sure?')" />
-                                </div>
+                                <a href="form_lap2.php" type="submit" class="previous">next</a>
+                            </div>
                         </div>
                     </form>
                 </div>
