@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +58,7 @@
 						<button class="login100-form-btn" href="login.php">
 							Login
 						</button>
+						<input type="submit" class="btn btn-success btn-block" name="login" value="Login">
 					</div>
 
 					<div class="text-center p-t-90">

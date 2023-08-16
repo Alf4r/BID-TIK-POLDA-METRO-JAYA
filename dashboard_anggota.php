@@ -1,3 +1,17 @@
+<?php
+	include("sess_check.php");
+
+	$id=$sess_Anggotaid;
+
+	
+	$sql_g = "SELECT * FROM users WHERE id='$id'";
+	$ress_g = mysqli_query($conn, $sql_g);
+	$res = mysqli_fetch_array($ress_g);
+    
+    // deskripsi halaman
+    $pagedesc = "dashboard_anggota";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
