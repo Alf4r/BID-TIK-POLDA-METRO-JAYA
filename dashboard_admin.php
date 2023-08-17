@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+// Cek apakah pengguna sudah login
+if (!isset($_SESSION['login_user'])) {
+    header("location: login.php");
+    exit;
+}
+
+// Cek apakah pengguna memiliki hak akses untuk halaman Admin
+if ($_SESSION['role'] !== 'Admin') {
+    echo "Anda tidak memiliki akses ke halaman ini!";
+    exit;
+}
+
+// Konten dashboard Admin
+echo "Selamat datang di Dashboard Admin, " . $_SESSION['login_user'] . "!";
+// ... kode lain untuk konten dashboard ...
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +70,7 @@
                 <a class="nav-link" href="index.html">Dashboard <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="service.html">Manage User</a>
+                <a class="nav-link" href="manage_user.php">Manage User</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Formulir_Laporan1.php">Logout</a>

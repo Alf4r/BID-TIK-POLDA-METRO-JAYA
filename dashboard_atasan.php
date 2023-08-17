@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+// Cek apakah pengguna sudah login
+if (!isset($_SESSION['login_user'])) {
+    header("location: login.php");
+    exit;
+}
+
+// Cek apakah pengguna memiliki hak akses untuk halaman Atasan
+if ($_SESSION['role'] !== 'Atasan') {
+    echo "Anda tidak memiliki akses ke halaman ini!";
+    exit;
+}
+
+// Konten dashboard Atasan
+echo "Selamat datang di Dashboard Atasan, " . $_SESSION['login_user'] . "!";
+// ... kode lain untuk konten dashboard ...
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

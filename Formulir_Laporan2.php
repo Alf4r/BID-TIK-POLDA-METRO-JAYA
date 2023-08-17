@@ -93,7 +93,7 @@
                             </div>
                             <div style="display: flex; justify-content: center; margin-top: 20px;">
                                 <a href="Formulir_Laporan1.php" type="submit" class="previous">Previous</a>
-                                <a href="form_lap2.php" type="submit" class="previous">next</a>
+                                <a href="form_lap.php" type="submit" class="previous">next</a>
                             </div>
                         </div>
                     </form>

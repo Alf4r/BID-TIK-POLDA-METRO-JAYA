@@ -1,15 +1,21 @@
 <?php
-	include("sess_check.php");
+session_start();
 
-	$id=$sess_Anggotaid;
+// Cek apakah pengguna sudah login
+if (!isset($_SESSION['login_user'])) {
+    header("location: login.php");
+    exit;
+}
 
-	
-	$sql_g = "SELECT * FROM users WHERE id='$id'";
-	$ress_g = mysqli_query($conn, $sql_g);
-	$res = mysqli_fetch_array($ress_g);
-    
-    // deskripsi halaman
-    $pagedesc = "dashboard_anggota";
+// Cek apakah pengguna memiliki hak akses untuk halaman Atasan
+if ($_SESSION['role'] !== 'Anggota') {
+    echo "Anda tidak memiliki akses ke halaman ini!";
+    exit;
+}
+
+// Konten dashboard Atasan
+$_SESSION['login_user'] . "!";
+// ... kode lain untuk konten dashboard ...
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +50,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        
+    </style>
     </head>
 <body>
     <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -69,11 +78,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="Formulir_Laporan1.php">Formulir Laporan</a>
             </li>
-          </ul>
-          <form class="">
-          <button class="btn btn-outline-success" type="submit" ">Search</button>
-          </form>
-        </div>
+        </ul>
     </nav>
     <div style="width:100%;height:400px;">
         <img class="center" src="img/Lambang_Polri.png" style="display: block;margin-right: auto;margin-left: auto;margin-top: 218px;">
