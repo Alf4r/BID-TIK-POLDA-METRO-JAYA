@@ -3,12 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Agu 2023 pada 03.34
+-- Waktu pembuatan: 18 Agu 2023 pada 07.00
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
-CREATE Database polda_login;
-USE polda_login;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -66,6 +64,7 @@ CREATE TABLE `form_lap` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
   `NPP` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `user_role` varchar(255) NOT NULL
@@ -75,10 +74,10 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `NPP`, `password`, `user_role`) VALUES
-(1, '1', '1', 'Anggota'),
-(2, '2', '2', 'Atasan'),
-(3, 'admin', '1', 'Admin');
+INSERT INTO `users` (`id`, `nama`, `NPP`, `password`, `user_role`) VALUES
+(1, 'kira yamato', '1', '1', 'Anggota'),
+(2, 'Athrun', '2', '2', 'Atasan'),
+(3, 'kaeya', 'admin', 'admin', 'Admin');
 
 --
 -- Indexes for dumped tables

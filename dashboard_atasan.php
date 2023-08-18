@@ -110,9 +110,6 @@ $_SESSION['login_user'] . "!";
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
-<<<<<<< HEAD
-            <ul class="navbar-nav  ">
-=======
         <ul class="navbar-nav" style="margin-left: auto;">
             <li class="nav-item">
                 <a class="nav-link" href="beranda_anggota.php">Beranda <span class="sr-only">(current)</span></a>
@@ -120,20 +117,9 @@ $_SESSION['login_user'] . "!";
             <li class="nav-item">
                 <a class="nav-link" href="rekapitulasi.php">Komparasi</a>
             </li>
->>>>>>> 63042fc202da514f62854f0b93fcf51ceaa130e5
             <li class="nav-item active">
                 <a class="nav-link" href="Formulir_Laporan1.php">List Laporan</a>
             </li>
-<<<<<<< HEAD
-          </ul>
-          <form class="">
-          <button class="btn btn-outline-success" type="submit" ">Search</button>
-          </form>
-        </div>
-    </nav>
-    <div class='tableauPlaceholder' id='viz1692332067092' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IndonesianCrimeDashboard2022&#47;Dashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IndonesianCrimeDashboard2022&#47;Dashboard' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IndonesianCrimeDashboard2022&#47;Dashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1692332067092');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-    
-=======
         </ul>
         <div class="w3-container" style="margin-left: auto;">
             <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;display: flex;">
@@ -142,6 +128,8 @@ $_SESSION['login_user'] . "!";
                     <span class="profile-name"><?php echo $_SESSION['nama']; ?></span>
                 </div>
         <ul id="dropdownContent" class="dropdown-content">
+            <li><a href="#"><i class="mdi mdi-email-outline"></i>Messages</a></li>
+            <li><a href="#"><i class="mdi mdi-account"></i>Account</a></li>
             <li><a href="#"><i class="mdi mdi-settings"></i>Settings</a></li>
             <li><a href="logout.php"><i class="mdi mdi-logout"></i>Logout</a></li>
         </ul>
@@ -160,13 +148,21 @@ $_SESSION['login_user'] . "!";
             });
         });
     </script>
-    </div>
-    <div style="width:100%;height:400px;">
-        <img class="center" src="img/Lambang_Polri.png" style="display: block;margin-right: auto;margin-left: auto;margin-top: 218px;">
-        <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
-        
-    </div>
+    
 
->>>>>>> 63042fc202da514f62854f0b93fcf51ceaa130e5
+    </div>
+    <div class="w3-container" style="display:flex;flex-wrap:wrap;margin:56px">
+        <img class="center" src="img/Lambang_Polri.png" style="display: flex;margin-right: auto;margin-left: auto;margin-top: 218px;">
+        <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="justify-content:center;background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
+        <div class="position-absolute w3-container" style="justify-content:center; background: rgba(247, 247, 247, 0.9); z-index: 2; position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center;">
+        
+        <div>
+            <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IndonesianCrimeDashboard2022&#47;Dashboard&#47;1_rss.png' style='border: none' />
+            </a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IndonesianCrimeDashboard2022&#47;Dashboard' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IndonesianCrimeDashboard2022&#47;Dashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1692332067092');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        
+        </div>
+    </div>
+    
+
 </body>
 </html>
