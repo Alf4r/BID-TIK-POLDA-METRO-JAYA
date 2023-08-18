@@ -110,6 +110,9 @@ $_SESSION['login_user'] . "!";
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
+<<<<<<< HEAD
+            <ul class="navbar-nav  ">
+=======
         <ul class="navbar-nav" style="margin-left: auto;">
             <li class="nav-item">
                 <a class="nav-link" href="beranda_anggota.php">Beranda <span class="sr-only">(current)</span></a>
@@ -117,9 +120,20 @@ $_SESSION['login_user'] . "!";
             <li class="nav-item">
                 <a class="nav-link" href="rekapitulasi.php">Komparasi</a>
             </li>
+>>>>>>> 63042fc202da514f62854f0b93fcf51ceaa130e5
             <li class="nav-item active">
                 <a class="nav-link" href="Formulir_Laporan1.php">List Laporan</a>
             </li>
+<<<<<<< HEAD
+          </ul>
+          <form class="">
+          <button class="btn btn-outline-success" type="submit" ">Search</button>
+          </form>
+        </div>
+    </nav>
+    <div class='tableauPlaceholder' id='viz1692332067092' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IndonesianCrimeDashboard2022&#47;Dashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IndonesianCrimeDashboard2022&#47;Dashboard' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IndonesianCrimeDashboard2022&#47;Dashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1692332067092');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    
+=======
         </ul>
         <div class="w3-container" style="margin-left: auto;">
             <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;display: flex;">
@@ -153,5 +167,6 @@ $_SESSION['login_user'] . "!";
         
     </div>
 
+>>>>>>> 63042fc202da514f62854f0b93fcf51ceaa130e5
 </body>
 </html>
