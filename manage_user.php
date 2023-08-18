@@ -25,6 +25,8 @@ if(mysqli_num_rows($result) > 0) {
 }
 // Konten dashboard Atasan
 $_SESSION['login_user'] . "!";
+// ... kode lain untuk konten dashboard ...
+
 $users = fetchAllUsers($conn);
 
 function fetchAllUsers($conn) {
@@ -116,7 +118,7 @@ function fetchAllUsers($conn) {
 </head>
 
 <body>
-<div class="navbar-1">
+    <div class="navbar-1">
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="justify-content: center;">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
             <img src="img/logo_polisi.jpeg" style="margin-left: -44px;">
@@ -126,16 +128,21 @@ function fetchAllUsers($conn) {
         </button>
         <ul class="navbar-nav" style="margin-left: auto;">
             <li class="nav-item">
-                <a class="nav-link" href="beranda_admin.php">Beranda <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="beranda_anggota.php">Beranda <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="manage_user.php">MANAGE USER</a>
+                <a class="nav-link" href="rekapitulasi.php">Rekapitulasi</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="Formulir_Laporan1.php">Formulir Laporan</a>
             </li>
         </ul>
-        <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;text-transform: uppercase;">
-            <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
-            <span><?php echo $_SESSION['nama']; ?></span>
-        </div>
+        <div class="w3-container" style="margin-left: auto;">
+            <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;display: flex;">
+                <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
+                <div style="display: flex;flex-wrap: wrap;align-content: center;">
+                    <span class="profile-name"><?php echo $_SESSION['nama']; ?></span>
+                </div>
         <ul id="dropdownContent" class="dropdown-content">
             <li><a href="#"><i class="mdi mdi-email-outline"></i>Messages</a></li>
             <li><a href="#"><i class="mdi mdi-account"></i>Account</a></li>
@@ -157,9 +164,7 @@ function fetchAllUsers($conn) {
             });
         });
     </script>
-
     </div>
-
     <div class="w3-container" style="display:flex;flex-wrap:wrap;margin:56px">
             <img class="center" src="img/Lambang_Polri.png" style="display: flex;margin-right: auto;margin-left: auto;margin-top: 218px;">
             <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="justify-content:center;background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
@@ -169,6 +174,7 @@ function fetchAllUsers($conn) {
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Nama</th>
                             <th>NPP</th>
                             <th>Role</th>
                             <th>Actions</th>
@@ -180,6 +186,7 @@ function fetchAllUsers($conn) {
                         foreach ($users as $user) {
                             echo "<tr>";
                             echo "<td>" . $user['id'] . "</td>";
+                            echo "<td>" . $user['nama'] . "</td>";
                             echo "<td>" . $user['NPP'] . "</td>";
                             echo "<td>" . $user['user_role'] . "</td>";
                             echo "<td><a href='edit.php?id=" . $user['id'] . "'>Edit</a> | <a href='delete.php?id=" . $user['id'] . "'>Delete</a></td>";
