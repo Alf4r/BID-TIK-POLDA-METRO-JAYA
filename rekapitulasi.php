@@ -60,8 +60,6 @@ $_SESSION['login_user'] . "!";
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .profile-dropdown {
             cursor: pointer;
@@ -101,14 +99,8 @@ $_SESSION['login_user'] . "!";
 
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    </head>
+</head>
 <body>
-    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div> -->
-
     <div class="navbar-1">
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="justify-content: center;">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
@@ -121,10 +113,10 @@ $_SESSION['login_user'] . "!";
             <li class="nav-item">
                 <a class="nav-link" href="beranda_anggota.php">Beranda <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="rekapitulasi.php">Rekapitulasi</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="Formulir_Laporan1.php">Formulir Laporan</a>
             </li>
         </ul>
@@ -134,8 +126,6 @@ $_SESSION['login_user'] . "!";
                 <div style="display: flex;flex-wrap: wrap;align-content: center;">
                     <span class="profile-name"><?php echo $_SESSION['nama']; ?></span>
                 </div>
-            </div>
-        </div>
         <ul id="dropdownContent" class="dropdown-content">
             <li><a href="#"><i class="mdi mdi-email-outline"></i>Messages</a></li>
             <li><a href="#"><i class="mdi mdi-account"></i>Account</a></li>
@@ -158,7 +148,7 @@ $_SESSION['login_user'] . "!";
         });
     </script>
     </div>
-    <div style="width:100%;height:400px;">
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
         <img class="center" src="img/Lambang_Polri.png" style="display: block;margin-right: auto;margin-left: auto;margin-top: 218px;">
         <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
     </div>
