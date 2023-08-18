@@ -7,13 +7,13 @@ if (!isset($_SESSION['login_user'])) {
     exit;
 }
 
-// Cek apakah pengguna memiliki hak akses untuk halaman Admin
-if ($_SESSION['role'] !== 'Admin') {
+// Cek apakah pengguna memiliki hak akses untuk halaman Atasan
+if ($_SESSION['role'] !== 'Anggota') {
     echo "Anda tidak memiliki akses ke halaman ini!";
     exit;
 }
 
-// Konten dashboard Admin
+// Konten dashboard Atasan
 $_SESSION['login_user'] . "!";
 // ... kode lain untuk konten dashboard ...
 ?>
@@ -50,6 +50,8 @@ $_SESSION['login_user'] . "!";
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .profile-dropdown {
             cursor: pointer;
@@ -91,8 +93,7 @@ $_SESSION['login_user'] . "!";
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
 <body>
-
-    <div class="navbar-1">
+<div class="navbar-1">
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="justify-content: center;">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
             <img src="img/logo_polisi.jpeg" style="margin-left: -44px;">
@@ -102,15 +103,18 @@ $_SESSION['login_user'] . "!";
         </button>
         <ul class="navbar-nav" style="margin-left: auto;">
             <li class="nav-item">
-                <a class="nav-link" href="beranda_admin.php">Beranda <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="beranda_anggota.php">Beranda <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="manage_user.php">MANAGE USER</a>
+                <a class="nav-link" href="rekapitulasi.php">Rekapitulasi</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="Formulir_Laporan1.php">Formulir Laporan</a>
             </li>
         </ul>
         <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;text-transform: uppercase;">
             <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
-            
+            <span><?php echo $_SESSION['NPP']; ?></span>
         </div>
         <ul id="dropdownContent" class="dropdown-content">
             <li><a href="#"><i class="mdi mdi-email-outline"></i>Messages</a></li>
@@ -133,7 +137,9 @@ $_SESSION['login_user'] . "!";
             });
         });
     </script>
+
     </div>
+
     <div style="width:100%;height:400px;">
         <img class="center" src="img/Lambang_Polri.png" style="display: block;margin-right: auto;margin-left: auto;margin-top: 218px;">
         <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">

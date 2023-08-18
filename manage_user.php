@@ -1,5 +1,30 @@
 <?php
 include 'config.php';
+session_start();
+
+// Cek apakah pengguna sudah login
+if (!isset($_SESSION['login_user'])) {
+    header("location: login.php");
+    exit;
+}
+
+// Cek apakah pengguna memiliki hak akses untuk halaman Atasan
+if ($_SESSION['role'] !== 'Admin') {
+    echo "Anda tidak memiliki akses ke halaman ini!";
+    exit;
+}
+// Mengambil nama pengguna dari database berdasarkan NPP
+$NPP = $_SESSION['login_user'];
+
+$query = "SELECT nama FROM users WHERE NPP = '$NPP'"; // Gantilah 'users' dengan nama tabel Anda jika berbeda
+$result = mysqli_query($conn, $query);
+
+if(mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION['nama'] = $row['nama'];
+}
+// Konten dashboard Atasan
+$_SESSION['login_user'] . "!";
 $users = fetchAllUsers($conn);
 
 function fetchAllUsers($conn) {
@@ -49,32 +74,91 @@ function fetchAllUsers($conn) {
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .profile-dropdown {
+            cursor: pointer;
+            background-color: navy;
+            color: white;
+        }
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            list-style-type: none;
+            padding: 0;
+            margin-top: 8px;  /* penyesuaian margin supaya sedikit berjarak dari kotak profil */
+            right: 0;
+            width: 200px;
+            z-index: 99;
+            top: 100%;  /* Sejajarkan ke bagian bawah .profile-dropdown */
+            border-radius: 8px; 
+        }
+
+        .dropdown-content li a {
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: #eee;
+        }
+
+        .show {
+            display: block;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top p-0" style="justify-content: center; margin-right: 150px; background-color: white;">
+<div class="navbar-1">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="justify-content: center;">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
-            <img src="img/logo_polisi.jpeg" alt style="margin-left: -548%;">
+            <img src="img/logo_polisi.jpeg" style="margin-left: -44px;">
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Dashboard <span class="sr-only">(current)</span></a>
+        <ul class="navbar-nav" style="margin-left: auto;">
+            <li class="nav-item">
+                <a class="nav-link" href="beranda_admin.php">Beranda <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="service.html">Manage User</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Formulir_Laporan1.php">Logout</a>
+                <a class="nav-link" href="manage_user.php">MANAGE USER</a>
             </li>
         </ul>
-        <form class="">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;text-transform: uppercase;">
+            <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
+            <span><?php echo $_SESSION['nama']; ?></span>
+        </div>
+        <ul id="dropdownContent" class="dropdown-content">
+            <li><a href="#"><i class="mdi mdi-email-outline"></i>Messages</a></li>
+            <li><a href="#"><i class="mdi mdi-account"></i>Account</a></li>
+            <li><a href="#"><i class="mdi mdi-settings"></i>Settings</a></li>
+            <li><a href="logout.php"><i class="mdi mdi-logout"></i>Logout</a></li>
+        </ul>
+    </div>
     </nav>
+    <script>
+        $(document).ready(function(){
+            $('.profile-dropdown').click(function(event){
+                event.stopPropagation();
+                $('.dropdown-content').toggle(); 
+            });
+
+            // Jika user mengklik di luar dropdown, maka tutup dropdown
+            $(document).click(function(){
+                $('.dropdown-content').hide();
+            });
+        });
+    </script>
+
+    </div>
 
     <div class="w3-container" style="display:flex;flex-wrap:wrap;margin:56px">
             <img class="center" src="img/Lambang_Polri.png" style="display: flex;margin-right: auto;margin-left: auto;margin-top: 218px;">

@@ -1,4 +1,5 @@
 <?php
+include 'config.php';
 session_start();
 
 // Cek apakah pengguna sudah login
@@ -7,13 +8,22 @@ if (!isset($_SESSION['login_user'])) {
     exit;
 }
 
-// Cek apakah pengguna memiliki hak akses untuk halaman Admin
-if ($_SESSION['role'] !== 'Admin') {
+// Cek apakah pengguna memiliki hak akses untuk halaman Atasan
+if ($_SESSION['role'] !== 'Anggota') {
     echo "Anda tidak memiliki akses ke halaman ini!";
     exit;
 }
+// Mengambil nama pengguna dari database berdasarkan NPP
+$NPP = $_SESSION['login_user'];
 
-// Konten dashboard Admin
+$query = "SELECT nama FROM users WHERE NPP = '$NPP'"; // Gantilah 'users' dengan nama tabel Anda jika berbeda
+$result = mysqli_query($conn, $query);
+
+if(mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION['nama'] = $row['nama'];
+}
+// Konten dashboard Atasan
 $_SESSION['login_user'] . "!";
 // ... kode lain untuk konten dashboard ...
 ?>
@@ -50,6 +60,8 @@ $_SESSION['login_user'] . "!";
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .profile-dropdown {
             cursor: pointer;
@@ -91,6 +103,11 @@ $_SESSION['login_user'] . "!";
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
 <body>
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div> -->
 
     <div class="navbar-1">
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="justify-content: center;">
@@ -102,15 +119,22 @@ $_SESSION['login_user'] . "!";
         </button>
         <ul class="navbar-nav" style="margin-left: auto;">
             <li class="nav-item">
-                <a class="nav-link" href="beranda_admin.php">Beranda <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="beranda_anggota.php">Beranda <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="rekapitulasi.php">Rekapitulasi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="manage_user.php">MANAGE USER</a>
+                <a class="nav-link" href="Formulir_Laporan1.php">Formulir Laporan</a>
             </li>
         </ul>
-        <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;text-transform: uppercase;">
-            <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
-            
+        <div class="w3-container" style="margin-left: auto;">
+            <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;display: flex;">
+                <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
+                <div style="display: flex;flex-wrap: wrap;align-content: center;">
+                    <span class="profile-name"><?php echo $_SESSION['nama']; ?></span>
+                </div>
+            </div>
         </div>
         <ul id="dropdownContent" class="dropdown-content">
             <li><a href="#"><i class="mdi mdi-email-outline"></i>Messages</a></li>
