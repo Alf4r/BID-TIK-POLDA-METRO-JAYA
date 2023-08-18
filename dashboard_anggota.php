@@ -60,8 +60,6 @@ $_SESSION['login_user'] . "!";
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .profile-dropdown {
             cursor: pointer;
@@ -101,10 +99,10 @@ $_SESSION['login_user'] . "!";
 
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    </head>
+</head>
 <body>
-<div class="navbar-1">
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="justify-content: center;">
+    <div class="navbar-1">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="justify-content: center;">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
             <img src="img/logo_polisi.jpeg" style="margin-left: -44px;">
         </a>
@@ -149,9 +147,6 @@ $_SESSION['login_user'] . "!";
             });
         });
     </script>
-
-    </div>
-
     </div>
     <div style="width:100%;height:400px;">
         <img class="center" src="img/Lambang_Polri.png" style="display: block;margin-right: auto;margin-left: auto;margin-top: 218px;">
