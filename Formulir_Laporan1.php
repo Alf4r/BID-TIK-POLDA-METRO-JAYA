@@ -1,3 +1,33 @@
+<?php
+include 'config.php';
+session_start();
+
+// Cek apakah pengguna sudah login
+if (!isset($_SESSION['login_user'])) {
+    header("location: login.php");
+    exit;
+}
+
+// Cek apakah pengguna memiliki hak akses untuk halaman Atasan
+if ($_SESSION['role'] !== 'Anggota') {
+    echo "Anda tidak memiliki akses ke halaman ini!";
+    exit;
+}
+// Mengambil nama pengguna dari database berdasarkan NPP
+$NPP = $_SESSION['login_user'];
+
+$query = "SELECT nama FROM users WHERE NPP = '$NPP'"; // Gantilah 'users' dengan nama tabel Anda jika berbeda
+$result = mysqli_query($conn, $query);
+
+if(mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION['nama'] = $row['nama'];
+}
+// Konten dashboard Atasan
+$_SESSION['login_user'] . "!";
+// ... kode lain untuk konten dashboard ...
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,36 +60,93 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .profile-dropdown {
+            cursor: pointer;
+            background-color: navy;
+            color: white;
+        }
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            list-style-type: none;
+            padding: 0;
+            margin-top: 8px;  /* penyesuaian margin supaya sedikit berjarak dari kotak profil */
+            right: 0;
+            width: 200px;
+            z-index: 99;
+            top: 100%;  /* Sejajarkan ke bagian bawah .profile-dropdown */
+            border-radius: 8px; 
+        }
+
+        .dropdown-content li a {
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: #eee;
+        }
+
+        .show {
+            display: block;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div> -->
     <div class="navbar-1">
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top p-0" style="justify-content: center; margin-right: 150px; background-color= white;">
-            <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
-                <img src="img/logo_polisi.jpeg" alt style="margin-left: -548%;">
-            </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <ul class="navbar-nav ">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Beranda <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="service.html">Komparasi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Formulir_Laporan.php">Formulir Laporan</a>
-                </li>
-            </ul>
-            <form class="">
-                <button class="btn btn-outline-success" type="submit" ">Search</button>
-            </form>
-        </nav>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="justify-content: center;">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
+            <img src="img/logo_polisi.jpeg" style="margin-left: -44px;">
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav" style="margin-left: auto;">
+            <li class="nav-item">
+                <a class="nav-link" href="beranda_anggota.php">Beranda <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="rekapitulasi.php">Rekapitulasi</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="Formulir_Laporan1.php">Formulir Laporan</a>
+            </li>
+        </ul>
+        <div class="w3-container" style="margin-left: auto;">
+            <div onclick="toggleDropdown()" class="profile-dropdown" style="margin-left: auto;display: flex;">
+                <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png" class="navbar-brand d-flex align-items-center px-4 px-lg-5 split">
+                <div style="display: flex;flex-wrap: wrap;align-content: center;">
+                    <span class="profile-name"><?php echo $_SESSION['nama']; ?></span>
+                </div>
+        <ul id="dropdownContent" class="dropdown-content">
+            <li><a href="#"><i class="mdi mdi-email-outline"></i>Messages</a></li>
+            <li><a href="#"><i class="mdi mdi-account"></i>Account</a></li>
+            <li><a href="#"><i class="mdi mdi-settings"></i>Settings</a></li>
+            <li><a href="logout.php"><i class="mdi mdi-logout"></i>Logout</a></li>
+        </ul>
+    </div>
+    </nav>
+    <script>
+        $(document).ready(function(){
+            $('.profile-dropdown').click(function(event){
+                event.stopPropagation();
+                $('.dropdown-content').toggle(); 
+            });
+
+            // Jika user mengklik di luar dropdown, maka tutup dropdown
+            $(document).click(function(){
+                $('.dropdown-content').hide();
+            });
+        });
+    </script>
     </div>
     <div class="w3-container" style="display:flex;flex-wrap:wrap;margin:56px">
         <img class="center" src="img/Lambang_Polri.png" style="display: flex;margin-right: auto;margin-left: auto;margin-top: 218px;">
@@ -161,97 +248,76 @@
                                 <option value="">BMW</option>
                                 <option value="">Audi</option>
                             </select>
-                            </div>
+                        </div>
 
-<div style="display: flex; flex-direction: column; margin: 0 10px;">
-    <label for="loss">Kerugian</label>
-    <select id="loss" name="loss" style="width: 204px;">
-        <option value="">pilih kerugian</option>
-        <option value="">Volvo</option>
-        <option value="">Toyota</option>
-        <option value="">BMW</option>
-        <option value="">Audi</option>
-    </select>
-</div>
+                    <div style="display: flex; flex-direction: column; margin: 0 10px;">
+                        <label for="loss">Kerugian</label>
+                        <select id="loss" name="loss" style="width: 204px;">
+                            <option value="">pilih kerugian</option>
+                            <option value="">Volvo</option>
+                            <option value="">Toyota</option>
+                            <option value="">BMW</option>
+                            <option value="">Audi</option>
+                        </select>
+                    </div>
 
-<div style="display: flex; flex-direction: column; margin: 0 10px;">
-    <label for="incidentDate">Tanggal Kejadian</label>
-    <input type="date" id="incidentDate" name="tanggal" style="width:155px" />
-</div>
+                    <div style="display: flex; flex-direction: column; margin: 0 10px;">
+                        <label for="incidentDate">Tanggal Kejadian</label>
+                        <input type="date" id="incidentDate" name="tanggal" style="width:155px" />
+                    </div>
 
-<div style="display: flex; flex-direction: column; margin: 0 10px;">
-    <label for="incidentTime">Waktu Kejadian</label>
-    <input id="incidentTime" type="text" name="city" style="width: 189px;" >
-</div>
-</div>
-
-
-<div class="item" style="display: flex;flex-direction: row;justify-content: flex-start;">
-    <div style="display: flex;flex-direction: column;margin-right: 10px;">
-        <label for="provinsi">Detail Lokasi Kejadian:</label>
-        <select id="provinsi" name="provinsi">
-            <option value="">Provinsi</option>
-            <option value="Volvo">Volvo</option>
-            <option value="Toyota">Toyota</option>
-            <option value="BMW">BMW</option>
-            <option value="Audi">Audi</option>
-        </select>
-    </div>
-
-    <div style="display: flex;flex-direction: column;margin-right: 10px;">
-        <label for="kabupaten" style="visibility: hidden;">Dummy</label> <!-- Menggunakan visibility hidden agar elemen tetap memakan tempat tetapi tidak terlihat -->
-        <select id="kabupaten" name="kabupaten">
-            <option value="">Kabupaten/kota</option>
-            <option value="Volvo">Volvo</option>
-            <option value="Toyota">Toyota</option>
-            <option value="BMW">BMW</option>
-            <option value="Audi">Audi</option>
-        </select>
-    </div>
-
-    <div style="display: flex;flex-direction: column;margin-right: 10px;">
-        <label for="detailMotif">Detail Motif kejadian</label>
-        <textarea id="detailMotif" name="message1" rows="2" cols="60" style="width: 579px;height: 63px;"></textarea>
-    </div>
-</div>
-
-
-<div style="display: flex;flex-direction: row;justify-content: flex-start;">
-    
-    <select id="kecamatan" name="kecamatan" style="margin-left: 0px;width: 166px;">
-        <option value="">Kecamatan</option>
-        <option value="Volvo">Volvo</option>
-        <!--...-->
-    </select>
-    <label for="kabupaten" style="visibility: hidden;">Dummy</label>
-    <select id="kodePos" name="kodePos" style="margin-left: -49px;width: 140px;">
-
-        <option value="">Kode Pos</option>
-        <option value="Volvo">Volvo</option>
-        <!--...-->
-    </select>
-
-</div>
-<div style="display: flex; justify-content: center; margin-top: 20px;">
-    <a href="Formulir_Laporan2.php" type="submit" class="previous">selanjutnya</a>
-</div>
-
-                            <!-- </div> -->
-                        </div>  
-                    </form>
+                    <div style="display: flex; flex-direction: column; margin: 0 10px;">
+                        <label for="incidentTime">Waktu Kejadian</label>
+                        <input id="incidentTime" type="text" name="city" style="width: 189px;" >
+                    </div>
                 </div>
-            </fieldset>
-        </div>
-    </div>
-                        
-                        <!-- <label>Umur:</label>
-                        <input type="number" min="10" max="90" name="umur" />
 
-                        <input type="submit" name="submit" value="Send" /> -->
-                      
-        
-                
-     
-    
+
+                <div class="item" style="display: flex;flex-direction: row;justify-content: flex-start;">
+                    <div style="display: flex;flex-direction: column;margin-right: 10px;">
+                        <label for="provinsi">Detail Lokasi Kejadian:</label>
+                        <select id="provinsi" name="provinsi">
+                            <option value="">Provinsi</option>
+                            <option value="Volvo">Volvo</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Audi">Audi</option>
+                            </select>
+                    </div>
+
+                <div style="display: flex;flex-direction: column;margin-right: 10px;">
+                    <label for="kabupaten" style="visibility: hidden;">Dummy</label> <!-- Menggunakan visibility hidden agar elemen tetap memakan tempat tetapi tidak terlihat -->
+                    <select id="kabupaten" name="kabupaten">
+                        <option value="">Kabupaten/kota</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Audi">Audi</option>
+                    </select>
+                </div>
+
+                <div style="display: flex;flex-direction: column;margin-right: 10px;">
+                    <label for="detailMotif">Detail Motif kejadian</label>
+                    <textarea id="detailMotif" name="message1" rows="2" cols="60" style="width: 579px;height: 63px;"></textarea>
+                </div>
+            </div>
+
+
+                <div style="display: flex;flex-direction: row;justify-content: flex-start;">
+                    <select id="kecamatan" name="kecamatan" style="margin-left: 0px;width: 166px;">
+                        <option value="">Kecamatan</option>
+                        <option value="Volvo">Volvo</option>
+                    </select>
+
+            <label for="kabupaten" style="visibility: hidden;">Dummy</label>
+            <select id="kodePos" name="kodePos" style="margin-left: -49px;width: 140px;">
+                <option value="">Kode Pos</option>
+                <option value="Volvo">Volvo</option>
+            </select>
+
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <a href="Formulir_Laporan2.php" type="submit" class="previous">selanjutnya</a>
+        </div> 
 </body>
 </html>

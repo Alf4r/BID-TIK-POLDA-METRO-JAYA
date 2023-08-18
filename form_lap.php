@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Eksekusi query
     if(mysqli_query($conn, $sql)) {
-        echo "Laporan berhasil disimpan!";
+        header("Location: beranda_anggota.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
