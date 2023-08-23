@@ -115,7 +115,7 @@ $_SESSION['login_user'] . "!";
                 <a class="nav-link" href="beranda_anggota.php">Beranda <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="rekapitulasi.php">Komparasi</a>
+                <a class="nav-link" href="">Komparasi</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="Formulir_Laporan1.php">List Laporan</a>
