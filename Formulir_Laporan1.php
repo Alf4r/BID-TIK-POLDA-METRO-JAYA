@@ -153,7 +153,7 @@ $_SESSION['login_user'] . "!";
         <div class="position-absolute top-0 start-0 w-100  d-flex align-items-center" style="justify-content:center;background: rgba(247, 247, 247); opacity: 0.9; height: 129%;">
         <fieldset style="display:flex; justify-content:center;">
     <div style="display:flex;">
-        <form action="Formulir_Laporan2.php" method="POST" style="display: flex;flex-wrap: wrap;">
+        <form action="Form_lap.php" method="POST" style="display: flex;flex-wrap: wrap;">
             <legend style="display:flex; justify-content:center; -webkit-text-stroke-width:thin; margin-bottom:52px;">FORMULIR LAPORAN</legend>
                 <div style="display: flex;flex-wrap: wrap;flex-direction: column;">
                     <div style="display: flex;flex-direction: row;justify-content: space-between;">
@@ -277,7 +277,7 @@ $_SESSION['login_user'] . "!";
                 </div>
 
 
-                <div class="item" style="display: flex;flex-direction: row;justify-content: flex-start;">
+                <div class="item" style="display: flex;flex-direction: row;justify-content: center;">
                     <div style="display: flex;flex-direction: column;margin-right: 10px;">
                         <label for="provinsi">Detail Lokasi Kejadian:</label>
                         <select id="provinsi" name="provinsi">
@@ -288,6 +288,7 @@ $_SESSION['login_user'] . "!";
                             </select>
                     </div>
 
+<<<<<<< HEAD
                 <div style="display: flex;flex-direction: column;margin-right: 10px;">
                     <label for="kabupaten" style="visibility: hidden;">Dummy</label> <!-- Menggunakan visibility hidden agar elemen tetap memakan tempat tetapi tidak terlihat -->
                     <select id="kabupaten" name="kabupaten">
@@ -300,16 +301,28 @@ $_SESSION['login_user'] . "!";
                         <option value="Audi">Kepulauan Seribu</option>
                     </select>
                 </div>
+=======
+                    <div style="display: flex;flex-direction: column;margin-right: 10px;">
+                        <label for="kabupaten" style="visibility: hidden;">Dummy</label> <!-- Menggunakan visibility hidden agar elemen tetap memakan tempat tetapi tidak terlihat -->
+                        <select id="kabupaten" name="kabupaten">
+                            <option value="">Kabupaten/kota</option>
+                            <option value="Volvo">Volvo</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Audi">Audi</option>
+                        </select>
+                    </div>
+>>>>>>> 76c14a05b6ef9b03c3adc67a2f616d72cd8d067e
 
-                <div style="display: flex;flex-direction: column;margin-right: 10px;">
-                    <label for="detailMotif">Detail Motif kejadian</label>
-                    <textarea id="detailMotif" name="message1" rows="2" cols="60" style="width: 579px;height: 63px;"></textarea>
+                    <div style="display: flex;flex-direction: column;margin-right: 10px;">
+                        <label for="detailMotif">Detail Motif kejadian</label>
+                        <textarea id="detailMotif" name="message1" rows="2" cols="60" style="width: 579px;height: 63px;"></textarea>
+                    </div>
                 </div>
-            </div>
 
 
                 <div style="display: flex;flex-direction: row;justify-content: flex-start;">
-                    <select id="kecamatan" name="kecamatan" style="margin-left: 0px;width: 166px;">
+                    <select id="kecamatan" name="kecamatan" style="margin-left: 11px;width: 166px;">
                         <option value="">Kecamatan</option>
                         <option value="Volvo">Gambir</option>
                         <option value="Volvo">Sawah Besar</option>
@@ -320,6 +333,7 @@ $_SESSION['login_user'] . "!";
                         <option value="Volvo">Tanah Abang</option>
                     </select>
 
+<<<<<<< HEAD
                 <div style="display: flex;flex-direction: column; margin: 0 10px;">
                     <label for="tel">Kode Pos</label>
                     <input id="tel" type="text" name="tel" style="width: 180px;" >
@@ -341,5 +355,16 @@ $_SESSION['login_user'] . "!";
         <div style="display: flex; justify-content: center; margin-top: 20px;">
             <a href="Formulir_Laporan2.php" type="submit" class="previous">selanjutnya</a>
         </div> 
+=======
+            <label for="kabupaten" style="visibility: hidden;margin-left: 2px;">a</label>
+            <input id="kodepos" type="text" name="kodepos" style="width: 143px;" placeholder="kode pos" >
+                    </div>
+            </select>
+            <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <button style="margin-left: 104px;">Selanjutnya</button>
+        </form>
+    </div>
+        
+>>>>>>> 76c14a05b6ef9b03c3adc67a2f616d72cd8d067e
 </body>
 </html>
