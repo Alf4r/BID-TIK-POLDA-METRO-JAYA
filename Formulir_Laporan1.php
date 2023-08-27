@@ -158,15 +158,15 @@ $_SESSION['login_user'] . "!";
                 <div style="display: flex;flex-wrap: wrap;flex-direction: column;">
                     <div style="display: flex;flex-direction: row;justify-content: space-between;">
                         <div style="display: flex;flex-direction: column; margin: 0 10px;">
-                            <label for="fname">Nama Lengkap</label>
+                            <label for="fname">Nama Lengkap Pelapor</label>
                             <input type="text" id="fname" name="fname" style="width: 350px;">
                         </div>
                         <div style="display: flex;flex-direction: column; margin: 0 10px;">
-                            <label for="lname">No.NIK</label>
+                            <label for="lname">No.NIK Pelapor</label>
                             <input type="text" id="lname2" name="lname" style="width: 194px;">
                         </div>
                         <div style="display: flex;flex-direction: column; margin: 0 10px;">
-                            <label for="phone">Korban</label>
+                            <label for="phone">Nama Lengkap Korban</label>
                             <input id="phone" type="tel" name="phone" style="width: 300px;">
                         </div> 
                     </div>
@@ -197,10 +197,8 @@ $_SESSION['login_user'] . "!";
                             <label for="nationality">Kewarganegaraan</label>
                             <select id="nationality" name="nationality">
                                 <option value="">Pilih Kewarganegaraan</option>
-                                <option value="volvo">Volvo</option>
-                                <option value="toyota">Toyota</option>
-                                <option value="bmw">BMW</option>
-                                <option value="audi">Audi</option>
+                                <option value="wni">WNI</option>
+                                <option value="wna">WNA</option>
                             </select>
                         </div>
     
@@ -218,6 +216,11 @@ $_SESSION['login_user'] . "!";
                             <select id="religion" name="religion" style="width: 184px;">
                                 <option value="">pilih agama</option>
                                 <option value="islam">Islam</option>
+                                <option value="kristen">kristen</option>
+                                <option value="katolik">katolik</option>
+                                <option value="hindu">hindu</option>
+                                <option value="budha">budha</option>
+                                <option value="konghucu">konghucu</option>
                             </select>
                         </div>
 
@@ -243,10 +246,13 @@ $_SESSION['login_user'] . "!";
                             <label for="crimeType">Jenis Kejahatan:</label>
                             <select id="crimeType" name="crimeType" style="width: 300px;">
                                 <option value="">pilih jenis kejahatan</option>
-                                <option value="">Volvo</option>
-                                <option value="">Toyota</option>
-                                <option value="">BMW</option>
-                                <option value="">Audi</option>
+                                <option value="">Pencurian</option>
+                                <option value="">Pencurian Dengan Kekerasan</option>
+                                <option value="">KDRT</option>
+                                <option value="">Hipnotis</option>
+                                <option value="">Kebakaran</option>
+                                <option value="">Penculikan</option>
+                                <option value="">Pembunuhan</option>
                             </select>
                         </div>
 
@@ -254,10 +260,8 @@ $_SESSION['login_user'] . "!";
                         <label for="loss">Kerugian</label>
                         <select id="loss" name="loss" style="width: 204px;">
                             <option value="">pilih kerugian</option>
-                            <option value="">Volvo</option>
-                            <option value="">Toyota</option>
-                            <option value="">BMW</option>
-                            <option value="">Audi</option>
+                            <option value="">Material</option>
+                            <option value="">Inmaterial</option>
                         </select>
                     </div>
 
@@ -278,10 +282,9 @@ $_SESSION['login_user'] . "!";
                         <label for="provinsi">Detail Lokasi Kejadian:</label>
                         <select id="provinsi" name="provinsi">
                             <option value="">Provinsi</option>
-                            <option value="Volvo">Volvo</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="BMW">BMW</option>
-                            <option value="Audi">Audi</option>
+                            <option value="Banten">Banten</option>
+                            <option value="Jawa Barat">Jawa Barat</option>
+                            <option value="Jakarta Raya">Jakarta Raya</option>
                             </select>
                     </div>
 
@@ -289,10 +292,12 @@ $_SESSION['login_user'] . "!";
                     <label for="kabupaten" style="visibility: hidden;">Dummy</label> <!-- Menggunakan visibility hidden agar elemen tetap memakan tempat tetapi tidak terlihat -->
                     <select id="kabupaten" name="kabupaten">
                         <option value="">Kabupaten/kota</option>
-                        <option value="Volvo">Volvo</option>
-                        <option value="Toyota">Toyota</option>
-                        <option value="BMW">BMW</option>
-                        <option value="Audi">Audi</option>
+                        <option value="Jakarta Pusat">Jakarta Pusat</option>
+                        <option value="Jakarta Selatan">Jakarta Utara</option>
+                        <option value="BMW">Jakarta Selatan</option>
+                        <option value="Audi">Jakarta Timur</option>
+                        <option value="Audi">Jakarta Barat</option>
+                        <option value="Audi">Kepulauan Seribu</option>
                     </select>
                 </div>
 
@@ -306,14 +311,31 @@ $_SESSION['login_user'] . "!";
                 <div style="display: flex;flex-direction: row;justify-content: flex-start;">
                     <select id="kecamatan" name="kecamatan" style="margin-left: 0px;width: 166px;">
                         <option value="">Kecamatan</option>
-                        <option value="Volvo">Volvo</option>
+                        <option value="Volvo">Gambir</option>
+                        <option value="Volvo">Sawah Besar</option>
+                        <option value="Volvo">Kemayoran</option>
+                        <option value="Volvo">Senen</option>
+                        <option value="Volvo">Cempaka Putih</option>
+                        <option value="Volvo">Menteng</option>
+                        <option value="Volvo">Tanah Abang</option>
                     </select>
 
-            <label for="kabupaten" style="visibility: hidden;">Dummy</label>
+                <div style="display: flex;flex-direction: column; margin: 0 10px;">
+                    <label for="tel">Kode Pos</label>
+                    <input id="tel" type="text" name="tel" style="width: 180px;" >
+                </div>
+                       
+            <!-- <label for="kabupaten" style="visibility: hidden;">Dummy</label>
             <select id="kodePos" name="kodePos" style="margin-left: -49px;width: 140px;">
                 <option value="">Kode Pos</option>
-                <option value="Volvo">Volvo</option>
-            </select>
+                        <option value="Volvo">Gambir</option>
+                        <option value="Volvo">Sawah Besar</option>
+                        <option value="Volvo">Kemayoran</option>
+                        <option value="Volvo">Senen</option>
+                        <option value="Volvo">Cempaka Putih</option>
+                        <option value="Volvo">Menteng</option>
+                        <option value="Volvo">Tanah Abang</option>
+            </select> -->
 
         </div>
         <div style="display: flex; justify-content: center; margin-top: 20px;">

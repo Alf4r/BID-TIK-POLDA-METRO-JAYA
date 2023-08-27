@@ -6,7 +6,8 @@
 -- Waktu pembuatan: 18 Agu 2023 pada 07.00
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
-
+CREATE Database polda_login;
+USE polda_login;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
